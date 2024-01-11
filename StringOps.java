@@ -50,9 +50,9 @@ public class StringOps {
 
     public static boolean isLetter(char ch){
       if (ch != ' '){
-      return false;
-      }
       return true; 
+      }
+      return false; 
     }
 
     public static char toUpperCase(char ch) { 
@@ -78,7 +78,7 @@ public class StringOps {
 
 
       public static String camelCase(String string) {
-
+          // rule 1
           String s = "";
           int firstSpaceIndex = string.indexOf(' ');
           String firstWord = (firstSpaceIndex != -1) ? string.substring(0, firstSpaceIndex) : string;
@@ -86,22 +86,22 @@ public class StringOps {
             s+= (char) (toLowerCase(firstWord.charAt(i)));
           }
           
-  
+          //rule 2
           boolean capitalIsNext = false; 
           for (int i = firstSpaceIndex + 1; i < string.length(); i++) {
               char curChar = string.charAt(i);
 
+
               if(isLetter(curChar)) {
                 if(capitalIsNext) {
-                  s += (char)(toUpperCase(curChar));
+                  s += (char)(toUpperCase(string.charAt(i+1)));
                 capitalIsNext = false; 
                 } 
                 else  {
                 s+= (char)(toLowerCase(curChar)); 
-                
                 }
               }
-                else if(curChar == ' '){
+                else if(curChar == ' ' && isLetter(string.charAt(i+1))){
                   capitalIsNext = true; 
                 }
               }
