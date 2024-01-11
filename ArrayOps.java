@@ -20,7 +20,7 @@ public class ArrayOps {
         
          return  i;   
     }
-    return -1;
+    return 1;
 }  
     
 
