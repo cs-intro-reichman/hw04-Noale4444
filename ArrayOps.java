@@ -33,7 +33,14 @@ public class ArrayOps {
                 max = array[i];
              } else if (array[i] > secondMax && array[i] < max)
                 secondMax = array[i];
-            }
+            } 
+            int maxSum = 0; 
+            for(int i = 0; i< array.length; i++)
+            if(array[i] == max)
+            maxSum++;
+
+            if(maxSum >= 2)
+            secondMax = max;
     
         return secondMax; 
         }
