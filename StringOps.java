@@ -22,21 +22,111 @@ public class StringOps {
     //////                                               ///////
     ////////////////////////////////////////////////////////////
     public static void main(String[] args) {
-        
+      
     }
 
     public static String capVowelsLowRest (String string) {
-        // Write your code here:
-        return "";
+      String vowels = "aeiou"; 
+      String VOWELS = "AEIOU";
+      String s1 = "";
+      for(int i = 0; i < string.length(); i++){
+        if(vowels.indexOf(string.charAt(i)) != -1)
+           s1 += (char) (string.charAt(i) - 32); 
+             if(VOWELS.indexOf(string.charAt(i)) != -1) 
+                s1+= string.charAt(i);
+                   if(vowels.indexOf(string.charAt(i)) == -1 && VOWELS.indexOf(string.charAt(i)) == -1) { 
+                     if(string.charAt(i) >= 'A' && string.charAt(i) <= 'Z')
+                     s1 += (char) (string.charAt(i) + 32);
+                       else  
+                         s1+= string.charAt(i); 
+                         
+                   }
+      }
+
+        return s1;
     }
 
-    public static String camelCase (String string) {
-        // Write your code here:
-        return "";
+
+
+    public static boolean isLetter(char ch){
+      if (ch != ' '){
+      return false;
+      }
+      return true; 
     }
 
+    public static char toUpperCase(char ch) { 
+      char newChar; 
+      if(ch >= 'a' && ch<= 'z'){
+    newChar = (char) (ch - 32) ;
+      return newChar;
+    }
+    else 
+    return ch; 
+  }
+
+   public static char toLowerCase(char ch) { 
+      char newChar; 
+      if(ch >= 'A' && ch<= 'Z'){
+    newChar = (char) (ch + 32) ;
+      return newChar;
+    }
+    else 
+    return ch; 
+  }
+
+
+
+      public static String camelCase(String string) {
+
+          String s = "";
+          int firstSpaceIndex = string.indexOf(' ');
+          String firstWord = (firstSpaceIndex != -1) ? string.substring(0, firstSpaceIndex) : string;
+          for(int i = 0; i < firstWord.length(); i++) {
+            s+= (char) (toLowerCase(firstWord.charAt(i)));
+          }
+          
+  
+          boolean capitalIsNext = false; 
+          for (int i = firstSpaceIndex + 1; i < string.length(); i++) {
+              char curChar = string.charAt(i);
+
+              if(isLetter(curChar)) {
+                if(capitalIsNext) {
+                  s += (char)(toUpperCase(curChar));
+                capitalIsNext = false; 
+                } 
+                else  {
+                s+= (char)(toLowerCase(curChar)); 
+                
+                }
+              }
+                else if(curChar == ' '){
+                  capitalIsNext = true; 
+                }
+              }
+                    return s; 
+              }
+  
+             
+
+  
     public static int[] allIndexOf (String string, char chr) {
-        // Write your code here:
-        return new int[1];
+     int arrayLength = 0;
+     for(int i = 0; i < string.length(); i++) { 
+      if(string.charAt(i) == chr) 
+      arrayLength++;
+     }     
+     int curIndex = 0; 
+     int[] index = new int[arrayLength] ; 
+     for(int i = 0; i < string.length(); i++){
+      if(string.charAt(i) == chr)
+      index[curIndex] = chr; 
+      curIndex++;
+     } 
+
+       
+       
+        return index; 
     }
 }
