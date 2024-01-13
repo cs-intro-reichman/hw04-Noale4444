@@ -78,7 +78,6 @@ public class StringOps {
 
 
       public static String camelCase(String string) {
-          // rule 1
           String s = "";
           int firstSpaceIndex = string.indexOf(' ');
           String firstWord = (firstSpaceIndex != -1) ? string.substring(0, firstSpaceIndex) : string;
@@ -86,7 +85,6 @@ public class StringOps {
             s+= (char) (toLowerCase(firstWord.charAt(i)));
           }
           
-          //rule 2
           boolean capitalIsNext = false; 
           for (int i = firstSpaceIndex + 1; i < string.length(); i++) {
               char curChar = string.charAt(i);
@@ -101,7 +99,7 @@ public class StringOps {
                 s+= (char)(toLowerCase(curChar)); 
                 }
               }
-                else if(curChar == ' ' && isLetter(string.charAt(i+1))){
+                else if(!isLetter(curChar)  &&  isLetter(string.charAt(i+1))){
                   capitalIsNext = true; 
                 }
               }
