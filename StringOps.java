@@ -38,13 +38,13 @@ public class StringOps {
                      if(string.charAt(i) >= 'A' && string.charAt(i) <= 'Z')
                      s1 += (char) (string.charAt(i) + 32);
                        else  
-                         s1+= string.charAt(i); 
-                         
+                         s1+= string.charAt(i);  
                    }
       }
 
         return s1;
     }
+
 
      public static String firstToLower(String string) {
       String s = ""; 
@@ -105,7 +105,7 @@ public class StringOps {
      int[] array = new int[arrayLength] ; 
      for(int i = 0; i < string.length(); i++){
       if(string.charAt(i) == chr)
-      array[curIndex] = chr; 
+      array[curIndex] = i; 
       curIndex++;
      } 
 
