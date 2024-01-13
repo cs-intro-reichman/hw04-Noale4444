@@ -50,33 +50,44 @@ public class StringOps {
 
      public static String firstToLower(String string) {
       String s = ""; 
-      String firstWord = (string.indexOf(' ') == -1) ? string : string.substring(0, string.indexOf(' '));
-      for (int i = 0; i < firstWord.length(); i++){
-        if(firstWord.charAt(i) >= 'A' && firstWord.charAt(i) <= 'Z') 
-          s+= (char) (firstWord.charAt(i) + 32);
-           else 
-             s+= (char)(firstWord.charAt(i));
-        }
-        return s; 
+      int count = 0; 
+      int start = 0; 
+      while (string.charAt(start) == ' ') {
+        count++;
+        start++;
       }
+       for(int i = count; i < string.length();i++){
+        if(string.charAt(i) >= 'A' && string.charAt(i) <= 'Z')
+         s+= (char) (string.charAt(i) + 32);
+         else
+         s + string.charAt(i);
+        }
+          return s;
+      }
+
+      
 
       public static String firstToUpper(String string) { 
         String s = "";
-           s+= string.charAt(0); 
-        for(int i = 1; i < string.length()-1;i++) {
-          char curChar = string.charAt(i); 
-          char nextChar = string.charAt(i+1);
-
-          if(curChar == ' ') { 
-              if(nextChar >= 'a' && nextChar <= 'z')
-              s+= (char)(nextChar - 32);
-              else 
-              s+= nextChar; 
+        s += string.charAt(0); 
+        for(int i = 1; i < string.length();i++) { 
+          if(string.charAt(i - 1) == ' ') {
+            if(string.charAt(i) >= 'a' && string.charAt(i) <= 'z')
+             s+= (char) (string.charAt(i) - 32);
+           else 
+             s+= string.charAt(i); 
           }
-        }
-        return s;
+        else if(string.charAt(i) >= 'A' && string.charAt(i) <= 'Z') 
+          s+= (char) (string.charAt(i) + 32);
+          else 
+           s+= string.charAt(i);
+
       }
-          
+             return s; 
+        }
+         
+        
+
        public static String deletSpaces(String string) { 
         String s = ""; 
         for(int i = 0; i < string.length(); i++) { 
@@ -85,6 +96,8 @@ public class StringOps {
         }
         return s; 
        }
+
+       
        public static String camelCase(String string) {
         string = firstToLower(string);
         string = firstToUpper(string);
