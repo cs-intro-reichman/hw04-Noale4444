@@ -22,9 +22,7 @@ public class StringOps {
     //////                                               ///////
     ////////////////////////////////////////////////////////////
     public static void main(String[] args) {
-      System.out.println(cupVowelsLowRest("Hello World"));
-      System.out.println(camelCase("Hello World")); 
-      System.out.println(allIndexOf("Hello World", 'l'));
+     
     }
 
     public static String capVowelsLowRest(String string) {
