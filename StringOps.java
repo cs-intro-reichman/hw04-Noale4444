@@ -32,15 +32,17 @@ public class StringOps {
       for(int i = 0; i < string.length(); i++){
         if(vowels.indexOf(string.charAt(i)) != -1)
            s1 += (char) (string.charAt(i) - 32); 
-             if(VOWELS.indexOf(string.charAt(i)) != -1) 
+            else if(VOWELS.indexOf(string.charAt(i)) != -1) {
                 s1+= string.charAt(i);
-                   if(vowels.indexOf(string.charAt(i)) == -1 && VOWELS.indexOf(string.charAt(i)) == -1) { 
-                     if(string.charAt(i) >= 'A' && string.charAt(i) <= 'Z')
+              }  else {
+                if(vowels.indexOf(string.charAt(i)) == -1 && VOWELS.indexOf(string.charAt(i)) == -1) {
+                  }  if(string.charAt(i) >= 'A' && string.charAt(i) <= 'Z') {
                      s1 += (char) (string.charAt(i) + 32);
-                       else  
+                       }  else  {
                          s1+= string.charAt(i);  
                    }
-      }
+                  }
+                } 
 
         return s1;
     }
@@ -61,7 +63,7 @@ public class StringOps {
       public static String firstToUpper(String string) { 
         String s = "";
            s+= string.charAt(0); 
-        for(int i = 1; i < string.length();i++) {
+        for(int i = 1; i < string.length()-1;i++) {
           char curChar = string.charAt(i); 
           char nextChar = string.charAt(i+1);
 
@@ -78,22 +80,21 @@ public class StringOps {
        public static String deletSpaces(String string) { 
         String s = ""; 
         for(int i = 0; i < string.length(); i++) { 
-          if(string.charAt(i) != 0 ) 
+          if(string.charAt(i) != ' ' ) 
             s+= string.charAt(i);
         }
         return s; 
        }
-
-       public static String camelCase(String string) { 
+       public static String camelCase(String string) {
         string = firstToLower(string);
-        string = firstToUpper(string); 
-        string = deletSpaces(string); 
-
-        return string;
-       }
-
-
+        string = firstToUpper(string);
+        string = deletSpaces(string);
      
+        return string;
+     }
+     
+
+
   
     public static int[] allIndexOf (String string, char chr) {
      int arrayLength = 0;
