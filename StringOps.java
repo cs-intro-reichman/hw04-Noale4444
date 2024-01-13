@@ -22,10 +22,12 @@ public class StringOps {
     //////                                               ///////
     ////////////////////////////////////////////////////////////
     public static void main(String[] args) {
-      
+      System.out.println(cupVowelsLowRest("Hello World"));
+      System.out.println(camelCase("Hello World")); 
+      System.out.println(allIndexOf("Hello World", 'l'));
     }
 
-    public static String capVowelsLowRest (String string) {
+    public static String capVowelsLowRest(String string) {
       String vowels = "aeiou"; 
       String VOWELS = "AEIOU";
       String s1 = "";
@@ -94,14 +96,6 @@ public class StringOps {
 
 
      
-
-   
-
-
-
-     
-             
-
   
     public static int[] allIndexOf (String string, char chr) {
      int arrayLength = 0;
@@ -110,15 +104,15 @@ public class StringOps {
       arrayLength++;
      }     
      int curIndex = 0; 
-     int[] index = new int[arrayLength] ; 
+     int[] array = new int[arrayLength] ; 
      for(int i = 0; i < string.length(); i++){
       if(string.charAt(i) == chr)
-      index[curIndex] = chr; 
+      array[curIndex] = chr; 
       curIndex++;
      } 
 
        
        
-        return index; 
+        return array; 
     }
 }
