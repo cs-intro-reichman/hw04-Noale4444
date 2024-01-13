@@ -104,12 +104,11 @@ public class StringOps {
      int curIndex = 0; 
      int[] array = new int[arrayLength] ; 
      for(int i = 0; i < string.length(); i++){
-      if(string.charAt(i) == chr)
+      if(string.charAt(i) == chr) {
       array[curIndex] = i; 
       curIndex++;
      } 
-
-       
+    }
        
         return array; 
     }
