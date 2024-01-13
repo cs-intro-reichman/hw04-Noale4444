@@ -46,66 +46,60 @@ public class StringOps {
         return s1;
     }
 
-
-
-    public static boolean isLetter(char ch){
-      if (ch != ' '){
-      return true; 
+     public static String firstToLower(String string) {
+      String s = ""; 
+      String firstWord = (string.indexOf(' ') == -1) ? string : string.substring(0, string.indexOf(' '));
+      for (int i = 0; i < firstWord.length(); i++){
+        if(firstWord.charAt(i) >= 'A' && firstWord.charAt(i) <= 'Z') 
+          s+= (char) (firstWord.charAt(i) + 32);
+           else 
+             s+= (char)(firstWord.charAt(i));
+        }
+        return s; 
       }
-      return false; 
-    }
 
-    public static char toUpperCase(char ch) { 
-      char newChar; 
-      if(ch >= 'a' && ch<= 'z'){
-    newChar = (char) (ch - 32) ;
-      return newChar;
-    }
-    else 
-    return ch; 
-  }
+      public static String firstToUpper(String string) { 
+        String s = "";
+           s+= string.charAt(0); 
+        for(int i = 1; i < string.length();i++) {
+          char curChar = string.charAt(i); 
+          char nextChar = string.charAt(i+1);
 
-   public static char toLowerCase(char ch) { 
-      char newChar; 
-      if(ch >= 'A' && ch<= 'Z'){
-    newChar = (char) (ch + 32) ;
-      return newChar;
-    }
-    else 
-    return ch; 
-  }
-
-
-
-      public static String camelCase(String string) {
-          String s = "";
-          int firstSpaceIndex = string.indexOf(' ');
-          String firstWord = (firstSpaceIndex != -1) ? string.substring(0, firstSpaceIndex) : string;
-          for(int i = 0; i < firstWord.length(); i++) {
-            s+= (char) (toLowerCase(firstWord.charAt(i)));
+          if(curChar == ' ') { 
+              if(nextChar >= 'a' && nextChar <= 'z')
+              s+= (char)(nextChar - 32);
+              else 
+              s+= nextChar; 
           }
+        }
+        return s;
+      }
           
-          boolean capitalIsNext = false; 
-          for (int i = firstSpaceIndex + 1; i < string.length(); i++) {
-              char curChar = string.charAt(i);
+       public static String deletSpaces(String string) { 
+        String s = ""; 
+        for(int i = 0; i < string.length(); i++) { 
+          if(string.charAt(i) != 0 ) 
+            s+= string.charAt(i);
+        }
+        return s; 
+       }
+
+       public static String camelCase(String string) { 
+        string = firstToLower(string);
+        string = firstToUpper(string); 
+        string = deletSpaces(string); 
+
+        return string;
+       }
 
 
-              if(isLetter(curChar)) {
-                if(capitalIsNext) {
-                  s += (char)(toUpperCase(string.charAt(i+1)));
-                capitalIsNext = false; 
-                } 
-                else  {
-                s+= (char)(toLowerCase(curChar)); 
-                }
-              }
-                else if(!isLetter(curChar)  &&  isLetter(string.charAt(i+1))){
-                  capitalIsNext = true; 
-                }
-              }
-                    return s; 
-              }
-  
+     
+
+   
+
+
+
+     
              
 
   
