@@ -82,7 +82,7 @@ public class StringOps {
       return s;
   }
 
-  public static String deleteSPaces(String String) {
+  public static String deleteSpaces(String String) {
       String s = "";
       for (int i = 0; i < String.length(); i++) {
           if (String.charAt(i) != 32)
@@ -94,7 +94,7 @@ public class StringOps {
   public static String camelCase(String String) {
       String = firstToLower(String);
       String = firstToUpper(String);
-      String = deleteSPaces(String);
+      String = deleteSpaces(String);
       return String;
   }
 
