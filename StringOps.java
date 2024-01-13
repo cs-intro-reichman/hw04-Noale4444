@@ -60,7 +60,7 @@ public class StringOps {
         if(string.charAt(i) >= 'A' && string.charAt(i) <= 'Z')
          s+= (char) (string.charAt(i) + 32);
          else
-         s + string.charAt(i);
+         s += string.charAt(i);
         }
           return s;
       }
@@ -97,7 +97,7 @@ public class StringOps {
         return s; 
        }
 
-       
+
        public static String camelCase(String string) {
         string = firstToLower(string);
         string = firstToUpper(string);
