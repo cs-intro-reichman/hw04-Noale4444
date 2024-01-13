@@ -48,54 +48,55 @@ public class StringOps {
     }
 
 
-    public static String firstToLower(String String) {
-      String s = "";
-      int start = 0;
+    public static String firstToLower(String string) {
+      String str = "";
+      int p = 0;
       int count = 0;
-      while (String.charAt(start) == 32) {
+      while (string.charAt(p) == 32) {
           count++;
-          start++;
+          p++;
       }
-      for (int i = count; i < String.length(); i++) {
-          if (String.charAt(i) >= 'A' && String.charAt(i) <= 'Z')
-              s += (char) (String.charAt(i) + 32);
+
+      for (int i = count; i < string.length(); i++) {
+          if (string.charAt(i) >= 'A' && string.charAt(i) <= 'Z')
+              str += (char) (string.charAt(i) + 32);
           else
-              s += string.charAt(i);
+              str += string.charAt(i);
       }
-      return s;
+      return str;
   }
 
-  public static String firstToUpper(String String) {
-      String s = "";
-      s += String.charAt(0);
-      for (int i = 1; i < String.length(); i++) {
-          if (String.charAt(i - 1) == ' ') {
-              if (String.charAt(i) >= 'a' && String.charAt(i) <= 'z')
-                  s += (char) (String.charAt(i) - 32);
+  public static String firstToUpper(String string) {
+      String str = "";
+      str += string.charAt(0);
+      for (int i = 1; i < string.length(); i++) {
+          if (string.charAt(i - 1) == ' ') {
+              if (string.charAt(i) >= 'a' && string.charAt(i) <= 'z')
+                  str += (char) (string.charAt(i) - 32);
               else
-                  s += String.charAt(i);
-          } else if (String.charAt(i) >= 'A' && String.charAt(i) <= 'Z')
-              s += (char) (String.charAt(i) + 32);
+                  str += string.charAt(i);
+          } else if (string.charAt(i) >= 'A' && string.charAt(i) <= 'Z')
+              str += (char) (string.charAt(i) + 32);
           else
-              s += String.charAt(i);
+              str += string.charAt(i);
       }
-      return s;
+      return str;
   }
 
-  public static String deleteSpaces(String String) {
-      String s = "";
-      for (int i = 0; i < String.length(); i++) {
-          if (String.charAt(i) != 32)
-              s += String.charAt(i);
+  public static String deleteSpaces(String string) {
+      String str = "";
+      for (int i = 0; i < string.length(); i++) {
+          if (string.charAt(i) != 32)
+              str += string.charAt(i);
       }
-      return s;
+      return str;
   }
 
-  public static String camelCase(String String) {
-      String = firstToLower(String);
-      String = firstToUpper(String);
-      String = deleteSpaces(String);
-      return String;
+  public static String camelCase(String string) {
+      string = firstToLower(string);
+      string = firstToUpper(string);
+      string = deleteSpaces(string);
+      return string;
   }
 
 
