@@ -92,7 +92,8 @@ public class StringOps {
       return str;
   }
 
-  public static String camelCase(String string) {
+  
+public static String camelCase(String string) {
       string = firstToLower(string);
       string = firstToUpper(string);
       string = deleteSpaces(string);
